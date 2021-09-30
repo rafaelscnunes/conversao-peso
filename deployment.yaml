@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: conversao-peso
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: conversao-peso
+  template:
+    metadata:
+      labels:
+        app: conversao-peso
+    spec:
+      containers:
+        - name: web
+          image: rafaelscnunes/conversao-peso:v1
+          ports:
+            - containerPort: 80
